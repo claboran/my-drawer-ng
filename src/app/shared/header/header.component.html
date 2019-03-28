@@ -1,0 +1,21 @@
+<ActionBar class="action-bar">
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+
+    <ActionItem ios.systemIcon="12" android.position="actionBarIfRoom" [ngSwitch]="icon$ | async">
+        <Image *ngSwitchCase="true" src="res://android" (tap)="onIconTap()"></Image>
+        <Image *ngSwitchCase="false" src="res://anchor" (tap)="onIconTap()"></Image>
+    </ActionItem>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+                ios.position="left">
+    </ActionItem>
+    <ng-content></ng-content>
+</ActionBar>
