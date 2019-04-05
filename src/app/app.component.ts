@@ -1,18 +1,18 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import {NavigationEnd, NavigationStart, Router} from "@angular/router";
-import { RouterExtensions } from "nativescript-angular/router";
-import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
-import {delay, filter} from "rxjs/operators";
-import * as app from "tns-core-modules/application";
-import {ActivityIndicatorService} from "~/app/shared/services/activity-indicator.service";
-import {Observable} from "rxjs";
-import {tap} from "rxjs/internal/operators/tap";
+import { Component, OnInit} from '@angular/core';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
+import { RouterExtensions } from 'nativescript-angular/router';
+import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from 'nativescript-ui-sidedrawer';
+import {delay, filter} from 'rxjs/operators';
+import * as app from 'tns-core-modules/application';
+import {ActivityIndicatorService} from '~/app/shared/services/activity-indicator.service';
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/internal/operators/tap';
 
 @Component({
     moduleId: module.id,
-    selector: "ns-app",
-    templateUrl: "./app.component.html",
-    styleUrls: ["./app.component.scss"]
+    selector: 'ns-app',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
     private _activatedUrl: string;
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this._activatedUrl = "/home";
+        this._activatedUrl = '/home';
         this._sideDrawerTransition = new SlideInOnTopTransition();
 
         this.router.events
@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
     onNavItemTap(navItemRoute: string): void {
         this.routerExtensions.navigate([navItemRoute], {
             transition: {
-                name: "fade",
+                name: 'fade',
                 duration: 2000
 
             }

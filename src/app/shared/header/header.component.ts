@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {RadSideDrawer} from "nativescript-ui-sidedrawer";
-import * as app from "tns-core-modules/application";
-import {IconService} from "~/app/shared/services/icon.service";
-import {Observable} from "rxjs";
+import {RadSideDrawer} from 'nativescript-ui-sidedrawer';
+import * as app from 'tns-core-modules/application';
+import {IconService} from '~/app/shared/services/icon.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'ns-header',
